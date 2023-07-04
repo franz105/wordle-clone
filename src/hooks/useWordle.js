@@ -14,7 +14,7 @@ const useWordle = (solution) => {
     const formatGuess = () =>{
         let solutionArray = [...solution]
         let formatedGuess = [...currGuess].map((ch) => {
-            return {key: ch, color: 'grey'}
+            return {key: ch, color: 'gray'}
         })
 
         // chenge correct guess position to green
@@ -63,7 +63,7 @@ const useWordle = (solution) => {
         } else if (/^[A-Za-z]$/.test(key)) {
             if (currGuess.length < 5) {
                 setCurrGuess((prev) => {
-                    return prev + key
+                    return prev + key.toLowerCase()
                 })
             }
         } else if (key === "Enter") { // This handles the submission of words

@@ -20,3 +20,38 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.row {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.row > div {
+  display: block;
+  width: 60px;
+  height: 60px;
+  border: 1px solid #bbb;
+  margin: 4px;
+  text-align: center;
+  line-height: center;
+  text-transform: uppercase;
+  font-weight:bold;
+  font-size: 2.5em;
+}
+
+.row > div.green {
+  background: #6aaa64;
+  border-color: #6aaa64;
+}
+
+.row > div.gray {
+  background: #86888a;
+  border-color: #86888a;
+}
+.row > div.yellow {
+  background: #c9b458;
+  border-color: #c9b458;
+}
+

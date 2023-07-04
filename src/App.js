@@ -8,7 +8,7 @@ function App() {
       .then(response => response.json())
       .then(jsonFile => {
         const randomWord = jsonFile[Math.floor(Math.random() * jsonFile.length)]
-        setSolution(randomWord.word)
+        setSolution(randomWord.word.toLowerCase())
       })
   }, [setSolution]);
   return (
