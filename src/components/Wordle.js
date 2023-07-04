@@ -3,7 +3,7 @@ import useWordle from '../hooks/useWordle'
 
 export default function Wordle({solution}) {
 
-    const { currGuess, handleKeyup } = useWordle(solution)
+    const { currGuess, handleKeyup, guesses, isCorrect, turn } = useWordle(solution)
 
     useEffect(() => {
         window.addEventListener('keyup', handleKeyup)
@@ -11,7 +11,11 @@ export default function Wordle({solution}) {
         return () => window.removeEventListener('keyup', handleKeyup)
     }, [handleKeyup])
 
+    useEffect(() => {
+        console.log(guesses, turn, isCorrect)
+    }, [guesses, turn, isCorrect])
+
     return (
-        <div>current guess: {currGuess}</div>
+        <div>current word: {solution} <br></br>current guess: {currGuess}</div>
     )
 }
