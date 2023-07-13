@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const useWordle = (solution) => {
     const [turn, setTurn] = useState(0) // current number of turns
@@ -108,9 +108,17 @@ const useWordle = (solution) => {
             }
 
             //4. Maybe add a check if the current guess is a word
-            const formattedGuess = formatGuess()
-            addNewGuess(formattedGuess)
-        
+            fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${currGuess}`)
+                .then(response => response.json())
+                .then(data => {
+                    if ("title" in data) {
+                        console.log(currGuess, " is not in our dictionary. Try a different word")
+                        return 
+                    }
+                    const formattedGuess = formatGuess()
+                    addNewGuess(formattedGuess)
+                })
+            
         }
     }
 
