@@ -4,14 +4,13 @@ export default function KeyPad({usedKeys}) {
   const [letters, setLetters] = useState(null)
 
   useEffect(() => {
-    fetch("http://localhost:3001/letters")
+    fetch("http://localhost:8000/api/letters")
     .then((response) => response.json())
     .then(json => {
         setLetters(json)
     })
   }
-
-  , [])
+  , [setLetters])
   return (
     <div className='keypad'>
         {letters && letters.map((ch) => {

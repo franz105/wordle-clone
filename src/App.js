@@ -4,11 +4,14 @@ import Wordle from "./components/Wordle"
 function App() {
   const [solution, setSolution] = useState(null)
   useEffect(() => {
-    fetch('http://localhost:3001/words')
+    fetch("http://localhost:8000/api/get_word/", {
+      headers: {
+      "Content-Type": "application/json",
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },})
       .then(response => response.json())
-      .then(jsonFile => {
-        const randomWord = jsonFile[Math.floor(Math.random() * jsonFile.length)]
-        setSolution(randomWord.word.toLowerCase())
+      .then(data => {
+        setSolution(data.word.toLowerCase())
       })
   }, [setSolution]);
   return (

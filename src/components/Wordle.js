@@ -28,8 +28,8 @@ export default function Wordle({solution}) {
 
     return (
         <div>
-            <div>current word: {solution}</div>
-            <div>current guess: {currGuess}</div>
+            {/* <div>current word: {solution}</div>
+            <div>current guess: {currGuess}</div> */}
             <Grid currGuess = {currGuess} guesses={guesses} turn = {turn}/>
             <KeyPad usedKeys = {usedKeys}/>
             {showModal && <Modal isCorrect={isCorrect} turn={turn} solution={solution}/>}
